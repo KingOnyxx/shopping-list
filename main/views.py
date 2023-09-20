@@ -31,7 +31,7 @@ def create_product(request):
     if form.is_valid() and request.method == "POST":
         product = form.save(commit=False)
         product.user = request.user
-        form.save()
+        product.save()
         return HttpResponseRedirect(reverse('main:show_main'))
 
     context = {'form': form}
